@@ -7,10 +7,15 @@ import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
     private PaintView paintView;
+
+    Button button_new;
+    Button button_save;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +25,23 @@ public class MainActivity extends AppCompatActivity {
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         paintView.init(metrics);
+
+        button_new = (Button) findViewById(R.id.new_signature_btn_id);
+        button_save = (Button) findViewById(R.id.save_signature_btn_id);
+
+        button_new.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                paintView.clear();
+            }
+        });
+
+        button_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                paintView.WriteSignatureToFile();
+            }
+        });
     }
 
     @Override

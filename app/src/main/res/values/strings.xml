@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Paint</string>
+    <string name="new_signature_btn_text">New Signature</string>
+    <string name="save_current_btn_text">Save Current</string>
 </resources>
